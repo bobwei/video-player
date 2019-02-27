@@ -16,7 +16,8 @@ const fn = ({ router }) => {
   return (
     <>
       <div className="container">
-        <video className="video-player" controls src={src} ref={videoRef} />
+        {src && <video className="video-player" controls src={src} ref={videoRef} />}
+        {!src && <div className="upload" />}
       </div>
       <style jsx>
         {`
@@ -26,7 +27,13 @@ const fn = ({ router }) => {
             overflow: hidden;
           }
           .video-player {
-            width: 80%;
+            width: 80vw;
+          }
+          .upload {
+            width: 80vw;
+            height: 60vh;
+            border: 3px dashed #ccc;
+            margin: 0 auto;
           }
         `}
       </style>
